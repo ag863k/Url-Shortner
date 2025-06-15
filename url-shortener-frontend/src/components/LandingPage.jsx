@@ -91,7 +91,7 @@ const LandingPage = () => {
           transition={{ duration: 0.8 }}
           className="text-white font-roboto font-bold lg:w-[60%]  md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center"
         >
-          Everything you need to create and manage powerful short links{" "}
+          Everything you need to manage powerful short links{" "}
         </motion.p>
         <div className="pt-4 pb-7 grid lg:gap-7 gap-4 xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-4">
           <Card
