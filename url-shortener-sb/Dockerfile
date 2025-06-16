@@ -1,4 +1,4 @@
-# Use a Java 17 JDK image to build the Spring Boot app
+# Use a Java 23 JDK image to build the Spring Boot app
 FROM eclipse-temurin:17-jdk AS build
 
 # Set the working directory
@@ -19,7 +19,7 @@ RUN ./mvnw dependency:go-offline
 COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
-# Use a Java 17 JRE image to run the application
+# Use a Java 23 runtime image to run the application
 FROM eclipse-temurin:17-jre
 
 # Set the working directory

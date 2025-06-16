@@ -18,32 +18,32 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-16 bg-gray-800  z-50 flex items-center sticky top-0 ">
+    <div className="h-16 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 backdrop-blur-sm z-50 flex items-center sticky top-0 ">
       <div className="lg:px-14 sm:px-8 px-4 w-full flex justify-between">
         <Link to="/">
-          <h1 className="font-bold text-3xl text-green-400 italic sm:mt-0 mt-2">
+          <h1 className="font-bold text-3xl text-white italic sm:mt-0 mt-2">
             GoLinkly
           </h1>
         </Link>
         <ul
           className={`flex sm:gap-10 gap-4 sm:items-center sm:mt-1 sm:pt-0 pt-3 text-slate-800 sm:static absolute left-0 top-[62px] sm:shadow-none shadow-md ${
             navbarOpen ? "h-fit sm:pb-0 pb-5" : "h-0 overflow-hidden"
-          }  transition-all duration-100 sm:h-fit sm:bg-none  bg-gray-800 sm:w-fit w-full sm:flex-row flex-col px-4 sm:px-0`}
+          }  transition-all duration-100 sm:h-fit sm:bg-none  bg-custom-gradient sm:w-fit w-full sm:flex-row flex-col px-4 sm:px-0`}
         >
-          <li className="hover:text-green-400 font-[500]  transition-all duration-150">
+          <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/" ? "text-green-400 font-semibold" : "text-gray-200"
+                path === "/" ? "text-white font-semibold" : "text-gray-200"
               }`}
               to="/"
             >
               Home
             </Link>
           </li>
-          <li className="hover:text-green-400 font-[500]  transition-all duration-150">
+          <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/about" ? "text-green-400 font-semibold" : "text-gray-200"
+                path === "/about" ? "text-white font-semibold" : "text-gray-200"
               }`}
               to="/about"
             >
@@ -51,10 +51,10 @@ const Navbar = () => {
             </Link>
           </li>
           {token && (
-            <li className="hover:text-green-400 font-[500]  transition-all duration-150">
+            <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/dashboard" ? "text-green-400 font-semibold" : "text-gray-200"
+                path === "/dashboard" ? "text-white font-semibold" : "text-gray-200"
               }`}
               to="/dashboard"
             >
@@ -63,17 +63,24 @@ const Navbar = () => {
           </li>
           )}
           {!token && (
-            <Link to="/register">
-              <li className=" sm:ml-0 -ml-1 bg-green-600 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:bg-green-700   transition-all duration-150">
-                SignUp
-              </li>
-            </Link>
+            <div className="flex gap-2 items-center">
+              <Link to="/login">
+                <li className="bg-white hover:bg-gray-100 text-gray-800 cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md transition-all duration-200">
+                  Login
+                </li>
+              </Link>
+              <Link to="/register">
+                <li className="bg-red-500 hover:bg-red-600 text-white cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md transition-all duration-200">
+                  SignUp
+                </li>
+              </Link>
+            </div>
             )}
 
           {token && (
             <button
              onClick={onLogOutHandler}
-             className="sm:ml-0 -ml-1 bg-green-600 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:bg-green-700   transition-all duration-150">
+             className="sm:ml-0 -ml-1 bg-red-500 hover:bg-red-600 text-white cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md transition-all duration-200">
               LogOut
             </button>
             )}

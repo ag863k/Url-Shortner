@@ -54,16 +54,13 @@ const Graph = ({ graphData }) => {
     plugins: {
       legend: {
         display: true,
-        labels: {
-          color: '#ffffff'
-        }
       },
     },
     scales: {
       y: {
         beginAtZero: true,
         ticks: {
-          color: '#ffffff',
+          // stepSize: 1,
           callback: function (value) {
             if (Number.isInteger(value)) {
               return value.toString();
@@ -74,35 +71,29 @@ const Graph = ({ graphData }) => {
         title: {
           display: true,
           text: "Number Of Clicks",
-          color: '#ffffff',
           font: {
             family: "Arial",
             size: 16,
             weight: "bold",
+            color: "#FF0000",
           },
         },
-        grid: {
-          color: '#374151'
-        }
       },
       x: {
         beginAtZero: true,
-        ticks: {
-          color: '#ffffff'
-        },
+        // ticks: {
+        //   stepSize: 1,
+        // },
         title: {
           display: true,
           text: "Date",
-          color: '#ffffff',
           font: {
             family: "Arial",
             size: 16,
             weight: "bold",
+            color: "#FF0000",
           },
         },
-        grid: {
-          color: '#374151'
-        }
       },
     },
   };

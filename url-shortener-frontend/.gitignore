@@ -12,13 +12,95 @@ dist
 dist-ssr
 *.local
 
+# Environment Variables and Secrets
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+*.env
+
+# API Keys and Secrets
+.secrets
+secrets/
+config/secrets.json
+api-keys.json
+firebase-config.js
+aws-config.js
+
+# Authentication & JWT
+jwt-secret.txt
+private-key.pem
+public-key.pem
+*.p12
+*.pfx
+*.keystore
+
+# Build and Deploy
+.netlify/
+.vercel/
+.firebase/
+deploy-config.json
+
+# Personal and Sensitive
+TODO.md
+NOTES.md
+personal/
+screenshots/
+docs/private/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup Files
+*.backup
+*.bak
+*.old
+
+# Cache directories
+.cache/
+.parcel-cache/
+.vite/
+.rollup.cache/
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+.coverage/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock

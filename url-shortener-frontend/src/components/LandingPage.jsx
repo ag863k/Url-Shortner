@@ -6,7 +6,7 @@ import Card from "./Card";
 import { useStoreContext } from "../contextApi/ContextApi";
 
 let desc =
-  "Create compact, memorable links effortlessly with GoLinkly's streamlined platform. Distribute URLs seamlessly across multiple channels. Enhance your digital strategy with GoLinkly. Monitor engagement and organize your links efficiently to boost your online visibility. Create compact, memorable links effortlessly with GoLinkly's streamlined platform. Distribute URLs seamlessly across multiple channels.";
+  "Transform long URLs into smart, trackable links with GoLinkly's powerful platform. Share URLs effortlessly across platforms. Optimize your digital strategy with GoLinkly. Track clicks and manage your links seamlessly to enhance your online presence. Transform long URLs into smart, trackable links with GoLinkly's powerful platform. Share URLs effortlessly across platforms.";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -14,10 +14,14 @@ const LandingPage = () => {
   console.log("TOKEN FROM LANDING PAGE: " + token);
 
   const dashBoardNavigateHandler = () => {
-
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate("/register");
+    }
   };
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gray-900 lg:px-14 sm:px-8 px-4">
+    <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
       <div className="lg:flex-row flex-col    lg:py-5   pt-16   lg:gap-10 gap-8 flex justify-between items-center">
         <div className=" flex-1">
           <motion.h1
@@ -28,11 +32,11 @@ const LandingPage = () => {
             }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="font-bold font-roboto text-white lg:text-6xl md:text-5xl sm:text-4xl text-3xl   lg:leading-[65px] md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full"
+            className="font-bold font-roboto text-slate-800 md:text-5xl sm:text-4xl text-3xl   md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full"
           >
-            Transform Long URLs Into Smart, Trackable Links
+            Transforms Long URLs Into Smart, Trackable Links
           </motion.h1>
-          <p className="text-gray-300 text-sm my-5">
+          <p className="text-slate-700 text-sm my-5">
             GoLinkly revolutionizes URL management by converting lengthy addresses into intelligent, 
             trackable links instantly. With our advanced dashboard, GoLinkly empowers you to create 
             short URLs within moments. Transform your link sharing experience with GoLinkly today.
@@ -47,7 +51,7 @@ const LandingPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               onClick={dashBoardNavigateHandler}
-              className="bg-green-600 hover:bg-green-700  w-40 text-white rounded-md  py-2"
+              className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 shadow-lg hover:shadow-xl w-40 text-white rounded-md py-2 transition-all duration-300"
             >
               Manage Links
             </motion.button>
@@ -60,7 +64,7 @@ const LandingPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               onClick={dashBoardNavigateHandler}
-              className="border-green-400 border w-40 text-green-400 hover:bg-green-400 hover:text-gray-900 rounded-md  py-2 "
+              className="border-2 border-emerald-500 text-emerald-600 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-green-600 hover:text-white rounded-md py-2 w-40 transition-all duration-300"
             >
               Create Short Link
             </motion.button>
@@ -74,7 +78,7 @@ const LandingPage = () => {
             }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:w-[550px] sm:w-[520px] w-[450px] object-cover rounded-md"
+            className="sm:w-[480px] w-[400px] object-cover rounded-md"
             src="/images/img2.png"
             alt=""
           />
@@ -89,7 +93,7 @@ const LandingPage = () => {
           }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-white font-roboto font-bold lg:w-[60%]  md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center"
+          className="text-slate-800 font-roboto font-bold lg:w-[60%]  md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center"
         >
           Everything you need to manage powerful short links{" "}
         </motion.p>

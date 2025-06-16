@@ -11,7 +11,8 @@ export const getApps = () => {
     return apps ? apps.app : mainApp.app;
 }
 
-
+// url.localhost
+// url.urlbestshort.com
 export const getSubDomain = (location) => {
     const locationParts = location.split(".");
     const isLocalhost = locationParts.slice(-1)[0] === "localhost";

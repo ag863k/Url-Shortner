@@ -21,6 +21,7 @@ public class UserService {
     private UserRepository userRepository;
     private AuthenticationManager authenticationManager;
     private JwtUtils jwtUtils;
+
     public User registerUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
@@ -36,9 +37,9 @@ public class UserService {
         return new JwtAuthenticationResponse(jwt);
     }
 
-    public User findByUsername(String name){
+    public User findByUsername(String name) {
         return userRepository.findByUsername(name).orElseThrow(
-                () -> new UsernameNotFoundException("User not found with username: "+ name)
+                () -> new UsernameNotFoundException("User not found with username: " + name)
         );
     }
 }

@@ -15,7 +15,7 @@ const TextField = ({
       <div className="flex flex-col gap-1">
         <label
           htmlFor={id}
-          className={`${className ? className : ""} font-semibold text-md text-gray-200`}
+          className={`${className ? className : ""} font-semibold text-md  `}
         >
           {label}
         </label>
@@ -26,8 +26,8 @@ const TextField = ({
           placeholder={placeholder}
           className={`${
             className ? className : ""
-          } px-2 py-2 border outline-none bg-gray-700 text-gray-200 rounded-md ${
-            errors[id]?.message ? "border-red-500" : "border-gray-500 focus:border-green-400"
+          } px-2 py-2 border   outline-none bg-transparent  text-slate-700 rounded-md ${
+            errors[id]?.message ? "border-red-500" : "border-slate-600"
           }`}
           {...register(id, {
             required: { value: required, message },
@@ -52,7 +52,7 @@ const TextField = ({
         />
   
         {errors[id]?.message && (
-          <p className="text-sm font-semibold text-red-400 mt-0">
+          <p className="text-sm font-semibold text-red-600 mt-0">
             {errors[id]?.message}*
           </p>
         )}

@@ -1,4 +1,5 @@
 package com.url.shortener.models;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,5 +14,4 @@ public class User {
     private String username;
     private String password;
     private String role = "ROLE_USER";
-
 }
