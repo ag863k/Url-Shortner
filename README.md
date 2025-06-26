@@ -1,174 +1,90 @@
 # URL Shortener
 
-A full-stack URL shortening service with a modern React frontend and Spring Boot backend. Features user authentication, analytics dashboard, and comprehensive URL management.
+A full-stack URL shortening service with React frontend and Spring Boot backend. Features user authentication, analytics dashboard, and comprehensive URL management.
 
-## 🚀 Features
+## Features
 
-### Frontend Features
-- **Modern UI/UX**: Clean, responsive design with Tailwind CSS
-- **User Authentication**: Login/Register with JWT token management
-- **Dashboard Analytics**: Interactive charts showing click statistics
-- **URL Management**: Create, view, and manage shortened URLs
-- **Real-time Updates**: Instant UI updates after URL creation
-- **Copy to Clipboard**: One-click URL copying functionality
-- **Mobile Responsive**: Optimized for all device sizes
+- Modern React UI with Tailwind CSS
+- JWT Authentication system
+- Analytics Dashboard with interactive charts
+- URL Management - create, view, and track shortened URLs
+- Click Tracking and detailed analytics
+- Mobile Responsive design
+- PostgreSQL database with JPA/Hibernate
+- Docker containerization ready
 
-### Backend Features
-- **RESTful API**: Clean REST endpoints for all operations
-- **JWT Authentication**: Secure token-based authentication
-- **Database Integration**: PostgreSQL with JPA/Hibernate
-- **Click Tracking**: Detailed analytics and click event logging
-- **CORS Support**: Cross-origin requests handling
-- **Security**: Spring Security integration
-- **URL Validation**: Input validation and sanitization
+## Tech Stack
 
-## 🛠️ Tech Stack
+**Frontend:** React 18, Vite, Tailwind CSS, Material-UI, Chart.js, Axios  
+**Backend:** Spring Boot 3.4, Java 17, Spring Security, JWT, PostgreSQL  
+**Build:** Maven, npm, Docker
 
-### Frontend
-- **Framework**: React 18 with Vite
-- **Styling**: Tailwind CSS with custom configuration
-- **State Management**: React Context API + React Query
-- **UI Components**: Material-UI (MUI) components
-- **Charts**: Chart.js with React-ChartJS-2
-- **HTTP Client**: Axios
-- **Routing**: React Router DOM v7
-- **Forms**: React Hook Form
-- **Notifications**: React Hot Toast
-- **Icons**: React Icons
-- **Animations**: Framer Motion
-
-### Backend
-- **Framework**: Spring Boot 3.4.0
-- **Language**: Java 17
-- **Database**: PostgreSQL
-- **ORM**: Spring Data JPA with Hibernate
-- **Security**: Spring Security + JWT
-- **Build Tool**: Maven
-- **Development**: Lombok for boilerplate reduction
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 url-shortener/
 ├── url-shortener-frontend/          # React Frontend
 │   ├── src/
 │   │   ├── components/             # React components
-│   │   │   ├── Dashboard/          # Dashboard-specific components
-│   │   │   │   ├── CreateNewShorten.jsx
-│   │   │   │   ├── DashboardLayout.jsx
-│   │   │   │   ├── Graph.jsx
-│   │   │   │   ├── ShortenItem.jsx
-│   │   │   │   ├── ShortenPopUp.jsx
-│   │   │   │   └── ShortenUrlList.jsx
-│   │   │   ├── AboutPage.jsx
-│   │   │   ├── LandingPage.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── RegisterPage.jsx
-│   │   │   └── ...
-│   │   ├── api/                   # API configuration
-│   │   ├── contextApi/            # Context providers
-│   │   ├── hooks/                 # Custom React hooks
-│   │   ├── utils/                 # Utility functions
-│   │   └── ...
-│   ├── public/                    # Static assets
+│   │   ├── api/                    # API configuration
+│   │   ├── contextApi/             # Context providers
+│   │   ├── hooks/                  # Custom hooks
+│   │   └── utils/                  # Utilities
 │   ├── package.json
 │   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── .env                       # Environment variables
-└── url-shortener-sb/              # Spring Boot Backend
-    ├── src/main/java/com/url/shortener/
-    │   ├── controller/            # REST controllers
-    │   │   ├── AuthController.java
-    │   │   ├── RedirectController.java
-    │   │   └── UrlMappingController.java
-    │   ├── models/                # JPA entities
-    │   │   ├── User.java
-    │   │   ├── UrlMapping.java
-    │   │   └── ClickEvent.java
-    │   ├── repository/            # Data repositories
-    │   ├── service/               # Business logic
-    │   ├── security/              # Security configuration
-    │   ├── dtos/                  # Data transfer objects
-    │   └── UrlShortenerSbApplication.java
-    ├── src/main/resources/
-    │   └── application.properties # App configuration
-    ├── pom.xml                    # Maven dependencies
-    └── Dockerfile                 # Docker configuration
+│   └── .env
+├── url-shortener-sb/               # Spring Boot Backend
+│   ├── src/main/java/com/url/shortener/
+│   │   ├── controller/             # REST controllers
+│   │   ├── models/                 # JPA entities
+│   │   ├── repository/             # Data repositories
+│   │   ├── service/                # Business logic
+│   │   ├── security/               # Security config
+│   │   └── dtos/                   # Data transfer objects
+│   ├── src/main/resources/
+│   │   ├── application.properties
+│   │   └── application-prod.properties
+│   ├── pom.xml
+│   └── Dockerfile
+└── README.md
 ```
 
-## ⚙️ Installation & Setup
+## Setup
 
 ### Prerequisites
-- **Frontend**: Node.js 18+ and npm
-- **Backend**: Java 17+ and Maven
-- **Database**: PostgreSQL 13+
+- Node.js 18+, Java 17+, PostgreSQL 13+
 
-### 1. Clone Repository
+### Backend Setup
 ```bash
-git clone https://github.com/ag863k/url-shortener.git
-cd url-shortener
-```
-
-### 2. Backend Setup
-
-```bash
-# Navigate to backend directory
 cd url-shortener-sb
 
 # Set environment variables
-# Create application-local.properties or set environment variables:
 export DATABASE_URL=jdbc:postgresql://localhost:5432/url_shortener
-export DATABASE_USERNAME=your_db_username
-export DATABASE_PASSWORD=your_db_password
-export DATABASE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
-export JWT_SECRET=your_super_secret_jwt_key_here
-export FRONTEND_URL=http://localhost:5173
+export DATABASE_USERNAME=your_username
+export DATABASE_PASSWORD=your_password
+export JWT_SECRET=your_jwt_secret_key
 
-# Install dependencies and run
-./mvnw clean install
 ./mvnw spring-boot:run
 ```
 
-**Backend will run on:** `http://localhost:8080`
+**Backend runs on:** `http://localhost:8080`
 
-### 3. Frontend Setup
-
+### Frontend Setup
 ```bash
-# Navigate to frontend directory
 cd url-shortener-frontend
 
-# Install dependencies
 npm install
 
 # Create .env file
+echo "VITE_BACKEND_URL=http://localhost:8080" >> .env
 echo "VITE_REACT_FRONT_END_URL=http://localhost:5173" >> .env
-echo "VITE_API_BASE_URL=http://localhost:8080" >> .env
 
-# Start development server
 npm run dev
 ```
 
-**Frontend will run on:** `http://localhost:5173`
+**Frontend runs on:** `http://localhost:5173`
 
-## 🔧 Configuration
-
-### Backend Environment Variables
-```properties
-DATABASE_URL=jdbc:postgresql://localhost:5432/url_shortener
-DATABASE_USERNAME=your_username
-DATABASE_PASSWORD=your_password
-DATABASE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
-JWT_SECRET=your_jwt_secret_key_minimum_32_characters
-FRONTEND_URL=http://localhost:5173
-```
-
-### Frontend Environment Variables
-```env
-VITE_REACT_FRONT_END_URL=http://localhost:5173
-VITE_API_BASE_URL=http://localhost:8080
-```
-
-## 📝 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - User registration
@@ -177,83 +93,145 @@ VITE_API_BASE_URL=http://localhost:8080
 ### URL Management
 - `POST /api/urls/shorten` - Create shortened URL
 - `GET /api/urls/myurls` - Get user's URLs
-- `GET /api/urls/totalClicks` - Get click analytics
 - `GET /s/{shortUrl}` - Redirect to original URL
 
 ### Analytics
-- `GET /api/urls/totalClicks?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD` - Get click statistics
+- `GET /api/urls/totalClicks` - Get click statistics
+- `GET /api/urls/analytics/{shortUrl}` - Get URL analytics
 
-## 🚀 Deployment Scripts
+## Production Deployment
+
+### Backend (Azure App Service)
+
+The backend can be deployed to Azure App Service for production use:
+
+#### Prerequisites
+- Azure account with active subscription
+- Azure CLI installed and configured
+- Maven installed locally
+
+#### Deployment Steps
+
+1. **Prepare the application:**
+```bash
+cd url-shortener-sb
+mvn clean package -DskipTests
+```
+
+2. **Create Azure App Service:**
+```bash
+# Create resource group
+az group create --name url-shortener-rg --location "East US"
+
+# Create App Service plan
+az appservice plan create --name url-shortener-plan --resource-group url-shortener-rg --sku B1 --is-linux
+
+# Create web app
+az webapp create --resource-group url-shortener-rg --plan url-shortener-plan --name your-url-shortener-app --runtime "JAVA:17-java17"
+```
+
+3. **Configure environment variables:**
+```bash
+az webapp config appsettings set --resource-group url-shortener-rg --name your-url-shortener-app --settings \
+  DATABASE_URL="jdbc:postgresql://your-db-server.postgres.database.azure.com:5432/url_shortener" \
+  DATABASE_USERNAME="your_username" \
+  DATABASE_PASSWORD="your_password" \
+  JWT_SECRET="your_jwt_secret_key" \
+  SPRING_PROFILES_ACTIVE="prod"
+```
+
+4. **Deploy the application:**
+```bash
+az webapp deploy --resource-group url-shortener-rg --name your-url-shortener-app --src-path target/url-shortener-sb-1.0.0.jar --type jar
+```
+
+#### Azure Database for PostgreSQL
+```bash
+# Create PostgreSQL server
+az postgres server create --resource-group url-shortener-rg --name your-db-server --location "East US" --admin-user your_username --admin-password your_password --sku-name B_Gen5_1
+
+# Create database
+az postgres db create --resource-group url-shortener-rg --server-name your-db-server --name url_shortener
+
+# Configure firewall (allow Azure services)
+az postgres server firewall-rule create --resource-group url-shortener-rg --server your-db-server --name AllowAzureServices --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+**Backend URL:** `https://your-url-shortener-app.azurewebsites.net`
+
+### Backend (Docker)
+```bash
+cd url-shortener-sb
+docker build -t url-shortener-backend .
+docker run -p 8080:8080 -e DATABASE_URL=... url-shortener-backend
+```
 
 ### Frontend
+
+#### Local Development
 ```bash
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
+cd url-shortener-frontend
+npm install
+npm run build
 ```
 
-### Backend
+#### Azure Static Web Apps Deployment
 ```bash
-./mvnw clean package                    # Create JAR file
-java -jar target/url-shortener-sb-0.0.1-SNAPSHOT.jar  # Run JAR
+# Build for production
+npm run build
+
+# Deploy using Azure CLI
+az staticwebapp create --name your-url-shortener-frontend --resource-group url-shortener-rg --location "East US 2" --source ./dist --branch main --token your_github_token
+
+# Or deploy to Azure Storage (Static Website)
+az storage account create --name yoururlstorage --resource-group url-shortener-rg --location "East US" --sku Standard_LRS
+az storage blob service-properties update --account-name yoururlstorage --static-website --index-document index.html
+az storage blob upload-batch --account-name yoururlstorage --destination '$web' --source ./dist
 ```
 
-## 🎨 Custom Styling
+**Frontend URL:** `https://your-url-shortener-frontend.azurestaticapps.net`
 
-The project includes extensive Tailwind CSS customization:
-
-```javascript
-// Custom colors
-colors: {
-  customRed: "#dc2626",
-  navbarColor: "#ffffff",
-  btnColor: "#3364F7"
-}
-
-// Custom gradients
-backgroundImage: {
-  "custom-gradient": "linear-gradient(to right, #3b82f6, #9333ea)",
-  "card-gradient": "linear-gradient(to right, #38b2ac, #4299e1)"
-}
-
-// Custom shadows
-boxShadow: {
-  custom: "0 0 15px rgba(0, 0, 0, 0.3)"
-}
+#### Alternative: Netlify/Vercel
+```bash
+cd url-shortener-frontend
+npm run build
+# Deploy dist/ to Netlify, Vercel, or any static hosting service
 ```
 
-## 🔐 Security Features
+## Security Features
 
-- **JWT Authentication**: Secure token-based authentication
-- **Password Hashing**: BCrypt password encryption
-- **CORS Configuration**: Controlled cross-origin requests
-- **Input Validation**: Server-side validation for all inputs
-- **SQL Injection Protection**: JPA/Hibernate query protection
+- JWT token-based authentication
+- BCrypt password hashing
+- CORS configuration
+- Input validation
+- SQL injection protection
 
-## 📊 Key Dependencies
+## Key Features
 
-### Frontend Dependencies
-- `react`, `react-dom` - Core React
-- `react-router-dom` - Routing
-- `react-query` - Server state management
-- `axios` - HTTP client
-- `react-hook-form` - Form handling
-- `@mui/material` - UI components
-- `chart.js`, `react-chartjs-2` - Analytics charts
-- `tailwindcss` - Styling framework
+- **Performance Optimized**: Fast API responses, minimal bundle size
+- **Security First**: Comprehensive security measures
+- **Analytics**: Detailed click tracking and reporting
+- **Responsive**: Mobile-first design approach
+- **Scalable**: Production-ready architecture
+- **Azure Ready**: Configured for Azure App Service and Static Web Apps deployment
 
-### Backend Dependencies
-- `spring-boot-starter-web` - Web framework
-- `spring-boot-starter-data-jpa` - Database integration
-- `spring-boot-starter-security` - Security framework
-- `postgresql` - Database driver
-- `jjwt-*` - JWT handling
-- `lombok` - Code generation
+## Production Optimizations
 
-## 🤝 Contributing
+This project has been fully optimized for production deployment:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- **Backend**: Removed all Lombok dependencies, explicit code structure
+- **Security**: JWT authentication, BCrypt hashing, input validation
+- **Database**: PostgreSQL with optimized queries and connection pooling
+- **Frontend**: Build-optimized React with Vite, lazy loading
+- **Cloud**: Azure deployment scripts and configuration
+- **Monitoring**: Comprehensive logging and error handling
+- **Performance**: Minimized bundle size and API response times
+
+## Azure Deployment Benefits
+
+- **Scalability**: Auto-scaling based on demand
+- **Reliability**: 99.95% uptime SLA
+- **Security**: Built-in SSL, DDoS protection
+- **Monitoring**: Application Insights integration
+- **Cost-Effective**: Pay-as-you-scale pricing model
+- **Global**: Content delivery network (CDN) support

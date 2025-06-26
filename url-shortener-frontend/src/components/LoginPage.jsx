@@ -28,19 +28,20 @@ const LoginPage = () => {
     const loginHandler = async (data) => {
         setLoader(true);
         try {
-            const { data: response } = await api.post(
-                "/api/auth/public/login",
-                data
-            );
-            console.log(response.token);
-            setToken(response.token);
-            localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token));
-            toast.success("Login Successful!");
-            reset();
-            navigate("/dashboard");
+            const response = await api.post("/api/auth/login", data);
+            const token = response.data.token;
+            
+            if (token) {
+                setToken(token);
+                toast.success("Login Successful!");
+                reset();
+                navigate("/dashboard");
+            } else {
+                throw new Error("No token received");
+            }
         } catch (error) {
-            console.log(error);
-            toast.error("Login Failed!")
+            const errorMessage = error.response?.data?.error || error.message || "Login Failed!";
+            toast.error(errorMessage);
         } finally {
             setLoader(false);
         }

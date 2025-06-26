@@ -26,16 +26,13 @@ const RegisterPage = () => {
     const registerHandler = async (data) => {
         setLoader(true);
         try {
-            const { data: response } = await api.post(
-                "/api/auth/public/register",
-                data
-            );
+            await api.post("/api/auth/register", data);
             reset();
+            toast.success("Registration Successful!");
             navigate("/login");
-            toast.success("Registeration Successful!")
         } catch (error) {
-            console.log(error);
-            toast.error("Registeration Failed!")
+            const errorMessage = error.response?.data?.error || error.message || "Registration Failed!";
+            toast.error(errorMessage);
         } finally {
             setLoader(false);
         }

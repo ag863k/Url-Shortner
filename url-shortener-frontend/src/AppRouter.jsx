@@ -10,10 +10,7 @@ import LoginPage from "./components/LoginPage";
 import DashboardLayout from "./components/Dashboard/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "./components/ErrorPage";
-
-// <PrivateRoute publicPage={true}>
-//      <RegisterPage />
-// </PrivateRoute>
+import AuthTestPage from "./components/AuthTestPage";
 
 const AppRouter = () => {
   const hideHeaderFooter = location.pathname.startsWith("/s");
@@ -26,6 +23,7 @@ const AppRouter = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/s/:url" element={<ShortenUrlPage />} />
+          <Route path="/auth-test" element={<AuthTestPage />} />
 
           <Route path="/register" element={<PrivateRoute publicPage={true}><RegisterPage /></PrivateRoute>} />
           <Route path="/login" element={<PrivateRoute publicPage={true}><LoginPage /></PrivateRoute>} />
@@ -38,7 +36,6 @@ const AppRouter = () => {
       </>
     );
 }
-
 
 export default AppRouter;
 
